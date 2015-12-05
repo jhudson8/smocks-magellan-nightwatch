@@ -5,6 +5,13 @@ If you are using [smocks](https://github.com/jhudson8/smocks) as a mock server f
 
 Forget how it works... just show me an example
 ----------------------------------------------------
+```
+git clone https://github.com/jhudson8/smocks-magellan-nightwatch.git
+cd smocks-magellan-nightwatch/example
+npm install
+npm test
+```
+and take a look at the [example README](./example/README)
 
 
 How it works
