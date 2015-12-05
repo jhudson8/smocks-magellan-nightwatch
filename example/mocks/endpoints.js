@@ -5,7 +5,7 @@ smocks.id('example');
 // add a simple fixture that returns a message.  by default, "hello world" is returned
 // but there is an additional variant that returns "hello universe"
 smocks.route({
-    id: 'world',
+    id: 'message',
     label: 'hello message',
     path: '/message',
 
