@@ -66,7 +66,7 @@ module.exports = require('smocks-magellan-nightwatch').init({
 available options
 
 * ***configModeName**: if you want to change the global variable to something other than `configMode`
-* ***mockServerPlugin**: mock server plugin module (see [./example/mocks/mock-server-hapi-plugin.js](this) for example)
+* ***mockServerPlugin**: mock server plugin module (see [./example/mocks/mock-server-hapi-plugin.js](./example/mocks/mock-server-hapi-plugin.js) for example)
 * ***logFile***: for debugging purposes
 
 
