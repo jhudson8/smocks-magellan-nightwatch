@@ -16,7 +16,7 @@ and take a look at the [example README](./example/README.md)
 
 How it works
 ------------
-You only need to refer to an API base from a config value when executing your XHR calls.  To determine if you are in `mock mode`, a global variable will be introduced into your container HTML page called `configMode`.  This value will also tell you the port your API base should refer to.
+You need to refer to configurable API base when executing your XHR calls.  To determine if you are in `mock mode`, a global variable will is introduced into your container HTML page called `configMode`.  This value will (optionally) tell you the port your API base should refer to.
 
 For example, this is an example of what will be injected into your HTML page
 ```
@@ -48,7 +48,7 @@ Follow the [magellan-nightwatch](https://github.com/TestArmada/magellan-nightwat
 
 Create a module to be referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file) for setup/teardown integration
 
-nightwatch.json
+***nightwatch.json***
 ```
   ...
   "globals_path": "/path/to/global/module

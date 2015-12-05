@@ -1,5 +1,3 @@
-// this is purely a simple example which has mock references and should really
-// only be a dev-specific webpack config
 var path = require('path');
 var fs = require('fs');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -21,9 +19,3 @@ module.exports = {
   ]
 };
 
-// we know that this is called when wepack is executed so start the mock server
-if (!global.testMode) {
-  // global.testMode is set when we are in end to end testing mode so
-  // we don't want to start the normal dev env mock server in that case
-  require('./mocks/run-mock-server');
-}

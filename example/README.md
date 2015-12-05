@@ -4,7 +4,7 @@ Running the app
 ---------------
 ```
 npm install
-webpack-dev-server
+npm start
 ```
 browse to [http://localhost:8080](http://localhost:8080)
 
