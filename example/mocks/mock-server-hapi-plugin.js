@@ -3,7 +3,7 @@
 // load our example endpoint
 require('./endpoints');
 
-var plugin = require('smocks/hapi').toPlugin({});
+var plugin = require('smocks/hapi').toPlugin();
 plugin.attributes = {
   pkg: require('../package.json')
 };
