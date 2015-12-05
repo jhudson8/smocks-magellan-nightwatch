@@ -1,14 +1,16 @@
 {
-  "src_folders": ["./tests/message-tests"],
   "output_folder": "reports",
+
+  "src_folders": ["./tests/message-tests"],
   "custom_commands_path": [
     "./node_modules/testarmada-magellan-nightwatch/lib/commands",
     "./node_modules/smocks-magellan-nightwatch/commands"
   ],
+  "globals_path": "./tests/init.js",
+
   "custom_assertions_path": [
     "./node_modules/testarmada-magellan-nightwatch/lib/assertions"
   ],
-  "globals_path": "./tests/init.js",
 
   "selenium": {
     "start_process": true,
