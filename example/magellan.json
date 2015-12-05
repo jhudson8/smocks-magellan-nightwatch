@@ -1,0 +1,8 @@
+{
+  "nightwatch_config": "./tests/nightwatch.json",
+  "bail_early": true,
+  "max_workers": 10,
+  "reporters": [
+    "./node_modules/testarmada-performance-reporter/lib/performance_reporter"
+  ]
+}

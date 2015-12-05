@@ -1,0 +1,25 @@
+{
+  "name": "smocks-magellan-nightwatch",
+  "version": "0.0.1",
+  "description": "magellan nightwatch integration with the smocks mocking server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "magellan",
+    "nightwatch",
+    "smocks"
+  ],
+  "author": "Joe Hudson <joehud@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "webpack": "*"
+  },
+  "dependencies": {
+    "hapi": "^8.8.0",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "wreck": "6.x.x"
+  }
+}

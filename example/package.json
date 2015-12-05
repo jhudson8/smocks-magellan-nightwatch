@@ -1,0 +1,23 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "magellan --browser=chrome"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^1.6.0",
+    "nightwatch": "^0.8.8",
+    "testarmada-magellan": "^3.0.0",
+    "testarmada-magellan-nightwatch": "^2.0.1",
+    "testarmada-performance-reporter": "2.0.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}
