@@ -1,3 +1,6 @@
+Example nightwatch tests
+=============
+
 The actual nightwatch tests are in [./message-tests](./message-tests) which extend a [base test class](./base.js).
 
 Most of the [nightwatch.json](./nightwatch.json) is boilerplate except the following
