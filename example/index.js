@@ -1,7 +1,4 @@
 // *very simple example application
-require('es6-promise');
-require('whatwg-fetch');
-
 var Config = require('./config');
 
 var $ = require('jquery');
