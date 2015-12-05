@@ -5,7 +5,7 @@ var configModeInjector = require('smocks-magellan-nightwatch').injectConfigMode;
 
 module.exports = {
   context: __dirname,
-  entry: path.join(__dirname, 'index.js'),
+  entry: path.join(__dirname, 'web-app/index.js'),
   output: {
     path: path.join(__dirname, 'dist')
   },
@@ -13,7 +13,7 @@ module.exports = {
     // this will inject our "mocks" config value - you would only do this
     // during local development
     new HtmlWebpackPlugin({
-      templateContent: configModeInjector(fs.readFileSync('./index.html', {encoding: 'utf8'})),
+      templateContent: configModeInjector(fs.readFileSync('./web-app/index.html', {encoding: 'utf8'})),
       inject: 'body'
     }),
   ]

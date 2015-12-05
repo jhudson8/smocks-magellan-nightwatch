@@ -8,7 +8,7 @@ webpackConfig.plugins = [
   // this will inject our "mocks" config value - you would only do this
   // during local development
   new HtmlWebpackPlugin({
-    templateContent: configModeInjector(fs.readFileSync('./index.html', {encoding: 'utf8'})),
+    templateContent: configModeInjector(fs.readFileSync('./web-app/index.html', {encoding: 'utf8'})),
     inject: 'body'
   })
 ];
