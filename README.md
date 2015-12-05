@@ -11,7 +11,7 @@ cd smocks-magellan-nightwatch/example
 npm install
 npm test
 ```
-and take a look at the [example README](./example/README.md)
+and take a look at the [example code](./example)
 
 
 How it works
