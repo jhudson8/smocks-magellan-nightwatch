@@ -1,6 +1,3 @@
-Example web application
-=======================
-
 This is a *very simple* application just to demonstrate a dev env with the smocks mock server and end to end tests which control mock server responses.
 
 Running the app
