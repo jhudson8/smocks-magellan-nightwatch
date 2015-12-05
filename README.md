@@ -46,17 +46,11 @@ Hooking into Nightwatch
 -----------------------
 Follow the [magellan-nightwatch](https://github.com/TestArmada/magellan-nightwatch) instructions to include magellan and nightwatch into your project (basically include the magellan.json and nightwatch.json config files and some package dependencies).
 
-Create a module to be referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file) for setup/teardown integration
-
-***nightwatch.json***
-```
-  ...
-  "globals_path": "/path/to/global/module
-```
+We need to hook into nightwatch global setup/teardown so create a module to be referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file).
 
 // global nightwatch module example (using webpack)
 ```
-var nightwatchInit = require('magellan-smocks').init({
+module.exports = require('smocks-magellan-nightwatch').init({
   // compile any application resources and copy them to the "outputPath"
   // call the "callback" once complete - this is a simple webpack example
   build: function (outputPath, callback) {
@@ -67,16 +61,17 @@ var nightwatchInit = require('magellan-smocks').init({
   // path to your smocks hapi plugin (can be in same repo or a dependency)
   mockServerPlugin: require('path/to/smocks/hapi/plugin')
 });
-
-module.exports = {
-  before: nightwatchInit.before,
-  after: nightwatchInit.after
-};
-
 ```
+
+available options
+
+* ***configModeName**: if you want to change the global variable to something other than `configMode`
+* ***mockServerPlugin**: mock server plugin module (see [./example/mocks/mock-server-hapi-plugin.js](this) for example)
+* ***logFile***: for debugging purposes
+
 
 Smocks Nightwatch Commands
 --------------------------
-* resetMockConfig: Reset all fixture config (which can be updated using the `setMockVariant` command)
-* resetMockState: Reset the state of the mock server
-* setMockVariant: Set a fixture to have a specific variant.  The fixture id and variant id can be seen (if looking at the "Paths" view)... Usage: client.setMockVariant({ fixture: `fixture id`, variant: `variant id` })
+* ***resetMockConfig***: Reset all fixture config (which can be updated using the `setMockVariant` command)
+* ***resetMockState***: Reset the state of the mock server
+* ***setMockVariant***: Set a fixture to have a specific variant.  The fixture id and variant id can be seen (if looking at the "Paths" view)... Usage: client.setMockVariant({ fixture: `fixture id`, variant: `variant id` })
