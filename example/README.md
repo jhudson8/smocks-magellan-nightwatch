@@ -8,7 +8,7 @@ npm start
 ```
 browse to [http://localhost:8080](http://localhost:8080)
 
-view the [mock admin panel](http://localhost:8000/_admin) to change the messages (then refresh the page)
+view the [mock admin panel](http://localhost:8000/_admin) to change the messages
 
 
 Running the Magellan Nightwatch tests
