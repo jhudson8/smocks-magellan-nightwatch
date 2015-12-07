@@ -1,7 +1,8 @@
 # smocks-magellan-nightwatch
 Adapter for Magellan nightwatch to support the smocks stateful mock server
 
-If you are using [smocks](https://github.com/jhudson8/smocks) as a mock server for your application and want to use [magellan nightwatch](https://github.com/TestArmada/magellan-nightwatch) for end to end tests, you can easily hook up your mock server for your tests (even in parallel).
+If you are using [smocks](https://github.com/jhudson8/smocks) as a mock server for your application and want to use [magellan nightwatch](https://github.com/TestArmada/magellan-nightwatch) for end to end tests, you can easily hook up your mock server for your tests.  This will build your app once but start an app server and mock server instance for each nightwatch work to support as many parallel workers as you can handle.
+
 
 Forget how it works... just show me an example
 ----------------------------------------------------
