@@ -8,9 +8,9 @@ Running the app
 npm install
 npm start
 ```
-browse to [http://localhost:8080](http://localhost:8080)
+the browse to [http://localhost:8080](http://localhost:8080)
 
-view the [mock admin panel](http://localhost:8000/_admin) to change the messages
+or view the [mock admin panel](http://localhost:8000/_admin) to change the messages displayed in the app
 
 
 Running the Magellan Nightwatch tests
@@ -20,4 +20,4 @@ npm test
 ```
 The tests are in [./tests/message-tests](./tests/message-tests)
 
-The mock server impl is [./mocks/endpoints.js](./mocks/endpoints.js)
+The mock service is in [./mocks](./mocks)
