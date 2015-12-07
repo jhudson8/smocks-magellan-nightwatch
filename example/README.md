@@ -8,7 +8,7 @@ Running the app
 npm install
 npm start
 ```
-the browse to [http://localhost:8080](http://localhost:8080)
+then browse to [http://localhost:8080](http://localhost:8080)
 
 or view the [mock admin panel](http://localhost:8000/_admin) to change the messages displayed in the app
 
