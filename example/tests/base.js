@@ -27,6 +27,9 @@ Base.prototype = {
     SuperBase.prototype.after.call(this, client, callback);
   },
 
+  // each nightwatch worker has it's own running instance of the mock server and app server
+  // so we expose this method to nightwatch test classes to provide an easy way of
+  // referring to application URLs
   appUrl: function (path) {
     return 'http://localhost:' + global.appPort + path
   }

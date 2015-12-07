@@ -82,4 +82,7 @@ By adding the following entry as a custom command path in your [nightwatch.json]
 
 * ***resetMockConfig***: Reset all fixture config (which can be updated using the `setMockVariant` command)
 * ***resetMockState***: Reset the state of the mock server
-* ***setMockVariant***: Set a fixture to have a specific variant.  The fixture id and variant id can be seen (if looking at the "Paths" view)... Usage: client.setMockVariant({ fixture: `fixture id`, variant: `variant id` })
+* ***setMockVariant***: Set a fixture to have a specific variant.  The fixture id and variant id can be seen (if looking at the "Paths" view)... Usage:
+```
+  browser.setMockVariant({ fixture: "fixture id", variant: "variant id" });
+```
