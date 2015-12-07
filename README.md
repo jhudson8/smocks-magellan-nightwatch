@@ -29,8 +29,10 @@ For example, this is an example of what will be injected into your HTML page
 
 And in your application code
 ```
-  // app config data
+  // app config module to be referenced in your app
   var apiBase = '/the/real/api/base';
+
+  // see if we should be using the mock server
   var match = (window.configMode || '').match(/mocks:?([0-9]*)/);
   if (match) {
     // port 8000 would be some default mock server port that your app could use when
