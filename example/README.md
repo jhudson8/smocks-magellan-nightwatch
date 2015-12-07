@@ -1,5 +1,7 @@
 This is a *very simple* application just to demonstrate a dev env with the smocks mock server and end to end tests which control mock server responses.
 
+The app just makes an XHR request to retrieve a message to be displayed on the screen.  This message can be controlled by selecting different variants in the [mock server admin panel](http://localhost:8000/_admin).
+
 Running the app
 ---------------
 ```
