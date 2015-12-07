@@ -51,9 +51,10 @@ Follow the [magellan-nightwatch](https://github.com/TestArmada/magellan-nightwat
 
 We need to hook into nightwatch global setup/teardown so create a module to be referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file).
 
-// global nightwatch module example (using webpack)
 ```
+// global nightwatch module example (using webpack)
 module.exports = require('smocks-magellan-nightwatch').init({
+
   // compile any application resources and copy them to the "outputPath"
   // call the "callback" once complete - this is a simple webpack example
   build: function (outputPath, callback) {
@@ -61,6 +62,7 @@ module.exports = require('smocks-magellan-nightwatch').init({
     config.output.path = outputPath;
     require('webpack')(config).run(callback);
   },
+
   // path to your smocks hapi plugin (can be in same repo or a dependency)
   mockServerPlugin: require('path/to/smocks/hapi/plugin')
 });
