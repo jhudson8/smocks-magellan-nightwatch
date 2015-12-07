@@ -2,6 +2,14 @@ This is a *very simple* application just to demonstrate a dev env with the smock
 
 The app just makes an XHR request to retrieve a message to be displayed on the screen.localhost:8000/_admin).
 
+
+Code Organization
+-----------------
+* ***web application code***: [web-app](./web-app)
+* ***nightwatch tests***: [tests](./tests)
+* ***mock server***: [mocks](./mocks)
+
+
 Running the app
 ---------------
 ```
