@@ -27,7 +27,7 @@ For example, this is an example of what will be magically injected into your HTM
 </script>
 ```
 
-And in your application code
+And in your application code you could do something like this
 ```
   // app config module to be referenced in your app
   var apiBase = '/the/real/api/base';
