@@ -14,10 +14,12 @@ webpackConfig.plugins = [
 ];
 module.exports = webpackConfig;
 
-// we know that this is called when wepack is executed so start the mock server
+// we know that webpack.config.dev is execuited when we are doing local development so
+// auto-start the mock server
 if (!global.testMode) {
   // global.testMode is set when we are in end to end testing mode so
   // we don't want to start the normal dev env mock server in that case
+  // because each nightwatch worker will start their own mock server
   require('./mocks/run-mock-server');
 }
 
