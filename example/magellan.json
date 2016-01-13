@@ -4,5 +4,6 @@
   "max_workers": 10,
   "reporters": [
     "./node_modules/testarmada-performance-reporter/lib/performance_reporter"
-  ]
+  ],
+  "setup_teardown": "./tests/magellan-init.js"
 }

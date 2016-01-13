@@ -3,7 +3,6 @@
   "version": "0.0.2",
   "description": "magellan nightwatch integration with the smocks mocking server",
   "main": "index.js",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jhudson8/smocks-magellan-nightwatch.git"
@@ -19,6 +18,8 @@
     "hapi": "^8.8.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
+    "q": "^1.4.1",
+    "rimraf": "^2.5.0",
     "wreck": "6.x.x"
   }
 }

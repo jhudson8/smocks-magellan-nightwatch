@@ -17,6 +17,31 @@ and take a look at the [example code](./example)
 
 How it works
 ------------
+There are 2 small setup scripts which are required
+
+magellan setup/teardown (referenced from magellan.json) see [https://github.com/TestArmada/magellan#setup-and-teardown](https://github.com/TestArmada/magellan#setup-and-teardown) which is required to copy your application static files to the directory that the nightwatch workers will be serving out.  It looks something like this
+```
+module.exports = require('smocks-magellan-nightwatch/setup-teardown').init({
+
+  // bould our application assets to the "outputPath" provided
+  build: function (outputPath, callback) {
+    // simple webpack example to build and copy all files to the output path provided
+    var config = require('webpack.config.js');
+    config.output.path = outputPath;
+    require('webpack')(config).run(callback);
+  }
+});
+```
+
+nightwatch setup/teardown setup/teardown referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file) in your nightwatch.json file.  This is used to start an app server to serve out the static contents as well as your smocks server for each worker.  It will look something like this
+```
+module.exports = require('smocks-magellan-nightwatch').init({
+
+  // point to our mock server hapi plugin
+  mockServerPlugin: require('../mocks/mock-server-hapi-plugin')
+});
+```
+
 You need to refer to configurable API base when executing your XHR calls.  To determine if you are in `mock mode`, a global variable is automatically applied to your container HTML page called `configMode`.  This value will (optionally) tell you the port your API base should refer to.
 
 For example, this is an example of what will be magically injected into your HTML page
@@ -48,25 +73,6 @@ And in your application code you could do something like this
 Hooking into Nightwatch
 -----------------------
 Follow the [magellan-nightwatch](https://github.com/TestArmada/magellan-nightwatch) instructions to include magellan and nightwatch into your project (basically include the magellan.json and nightwatch.json config files and some package dependencies).
-
-We need to hook into nightwatch global setup/teardown so create a module to be referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file).
-
-```
-// global nightwatch module example (using webpack)
-module.exports = require('smocks-magellan-nightwatch').init({
-
-  // compile any application resources and copy them to the "outputPath"
-  // call the "callback" once complete - this is a simple webpack example
-  build: function (outputPath, callback) {
-    var config = require('my/webpack/config');
-    config.output.path = outputPath;
-    require('webpack')(config).run(callback);
-  },
-
-  // path to your smocks hapi plugin (can be in same repo or a dependency)
-  mockServerPlugin: require('path/to/smocks/hapi/plugin')
-});
-```
 
 #### available options
 
