@@ -1,6 +1,6 @@
 {
   "name": "smocks-magellan-nightwatch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "magellan nightwatch integration with the smocks mocking server",
   "main": "index.js",
   "repository": {

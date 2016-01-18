@@ -1,3 +1,6 @@
+v1.0.1
+refactoring to clean things up (no bug fixes... nothing changed)
+
 v1.0.0
 update to use latest magellan (which now allows global setup/teardown)
 
