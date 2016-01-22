@@ -21,7 +21,7 @@ There are 2 small setup scripts which are required
 
 magellan setup/teardown (referenced from magellan.json) see [https://github.com/TestArmada/magellan#setup-and-teardown](https://github.com/TestArmada/magellan#setup-and-teardown) which is required to copy your application static files to the directory that the nightwatch workers will be serving out.  It looks something like this
 ```
-module.exports = require('smocks-magellan-nightwatch/setup-teardown').init({
+module.exports = require('smocks-magellan-nightwatch').magellan({
 
   // bould our application assets to the "outputPath" provided
   build: function (outputPath, callback) {
@@ -35,7 +35,7 @@ module.exports = require('smocks-magellan-nightwatch/setup-teardown').init({
 
 nightwatch setup/teardown setup/teardown referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file) in your nightwatch.json file.  This is used to start an app server to serve out the static contents as well as your smocks server for each worker.  It will look something like this
 ```
-module.exports = require('smocks-magellan-nightwatch').init({
+module.exports = require('smocks-magellan-nightwatch').nightwatch({
 
   // point to our mock server hapi plugin
   mockServerPlugin: require('../mocks/mock-server-hapi-plugin')
