@@ -1,3 +1,30 @@
+v2.0.0
+refactor to use consistent structure for both nightwatch and magellan
+
+to adjust your code, see below
+
+before
+```
+// magellan global setup/teardown script
+module.exports = require('smocks-magellan-nightwatch/setup-teardown')({
+...
+
+// nightwatch global setup/teardown script
+module.exports = require('smocks-magellan-nightwatch').init({
+...
+```
+
+after
+```
+// magellan global setup/teardown script
+module.exports = require('smocks-magellan-nightwatch').magellan({
+...
+
+// nightwatch global setup/teardown script
+module.exports = require('smocks-magellan-nightwatch').nightwatch({
+...
+```
+
 v1.0.1
 refactoring to clean things up (no bug fixes... nothing changed)
 
