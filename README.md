@@ -91,9 +91,37 @@ By adding the following entry as a custom command path in your [nightwatch.json]
   ],
 ```
 
-* ***resetMockConfig***: Reset all fixture config (which can be updated using the `setMockVariant` command)
-* ***resetMockState***: Reset the state of the mock server
-* ***setMockVariant***: Set a fixture to have a specific variant.  The fixture id and variant id can be seen (if looking at the "Paths" view)... Usage:
+#### resetMockConfig
+Reset all fixture config (which can be updated using the `setMockVariant` command)
+*no parameters required*
+```
+  browser.resetMockConfig();
+```
+
+#### resetMockState
+Reset the state of the mock server
+*no parameters required*
+```
+  browser.resetMockState();
+```
+
+#### setMockVariant
+signature: `({fixtureId, variantId})`
+Set a fixture to have a specific variant.  The fixture id and variant id can be seen (if looking at the "Paths" view).
 ```
   browser.setMockVariant({ fixture: "fixture id", variant: "variant id" });
+```
+
+#### setRouteInput
+signature: `({fixtureId, input})`
+Set input values for a fixture (see "Configuration" section).
+```
+  browser.setRouteInput({ fixture: "fixture id", input: {inputKey1, "value", inputKey2: "value"}});
+```
+
+#### setVariantInput
+signature: `({fixtureId, input})`
+Set input values for the selected variant of a fixture (see "Configuration" section).
+```
+  browser.setVariantInput({ fixture: "fixture id", input: {inputKey1, "value", inputKey2: "value"}});
 ```

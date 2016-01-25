@@ -9,15 +9,24 @@ smocks.route({
     label: 'hello message',
     path: '/message',
 
+    input: {
+      message: {
+        label: 'What is the default message',
+        type: 'text',
+        defaultValue: 'hello world'
+      }
+    },
+
     variantLabel: 'hello world',
     handler: function(req, reply) {
-      reply({message: 'hello world'});
+      reply({message: this.input('message')});
     }
   })
 
   .variant({
     id: 'universe',
     label: 'hello universe',
+
     handler: function (req, reply) {
       reply({message: 'hello universe'});
     }

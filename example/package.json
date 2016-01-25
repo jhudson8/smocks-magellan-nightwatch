@@ -15,7 +15,7 @@
   "devDependencies": {
     "html-webpack-plugin": "^1.6.0",
     "nightwatch": "^0.8.8",
-    "smocks": "^2.2.0",
+    "smocks": "^3.1.2",
     "smocks-magellan-nightwatch": "*",
     "testarmada-magellan": "^5.0.1",
     "testarmada-magellan-nightwatch": "^3.1.0",
