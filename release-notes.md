@@ -1,3 +1,6 @@
+v2.1.0
+Add additional route/variant input mutation commands: see [smocks-nightwatch-commands](https://github.com/jhudson8/smocks-magellan-nightwatch#smocks-nightwatch-commands)
+
 v2.0.0
 refactor to use consistent structure for both nightwatch and magellan
 
