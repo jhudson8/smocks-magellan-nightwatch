@@ -1,3 +1,8 @@
+3.0.0
+Don't use this yet until 3.0.1 - might not be stable
+
+Changes to be documented later but include additional hooks for manually building applications
+
 v2.1.0
 Add additional route/variant input mutation commands: see [smocks-nightwatch-commands](https://github.com/jhudson8/smocks-magellan-nightwatch#smocks-nightwatch-commands)
 
