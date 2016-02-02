@@ -5,5 +5,5 @@
 module.exports = require('smocks-magellan-nightwatch').nightwatch({
 
   // point to our mock server hapi plugin
-  mockServerPlugin: require('../mocks/mock-server-hapi-plugin')
+  mockServer: require('../mocks/mock-server-hapi-plugin')
 });

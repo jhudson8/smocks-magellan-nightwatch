@@ -1,3 +1,32 @@
+3.0.1
+Major structural changes (added ability to manually control the app server and mock server startup and teardown).  See [README.md](README.md) for details. This is *mostly* backwards compatible except you must change
+```
+// magellan init
+module.exports = require('smocks-magellan-nightwatch/setup-teardown')({
+  ...
+});
+```
+to
+```
+module.exports = require('smocks-magellan-nightwatch').magellan({
+  ...
+});
+```
+
+and
+```
+// nightwatch init
+module.exports = require('smocks-magellan-nightwatch').init({
+  ...
+});
+```
+to
+```
+module.exports = require('smocks-magellan-nightwatch').nightwatch({
+  ...
+});
+```
+
 3.0.0
 Don't use this yet until 3.0.1 - might not be stable
 

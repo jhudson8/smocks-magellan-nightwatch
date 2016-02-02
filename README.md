@@ -15,25 +15,29 @@ npm test
 and take a look at the [example code](./example)
 
 
-How it works
+Installation
 ------------
-There are 2 small setup scripts which are required
+There are 2 setup scripts which are required (for nightwatch and magellan)
 
-magellan setup/teardown (referenced from magellan.json) see [https://github.com/TestArmada/magellan#setup-and-teardown](https://github.com/TestArmada/magellan#setup-and-teardown) which is required to copy your application static files to the directory that the nightwatch workers will be serving out.  It looks something like this
+* Magellan setup/teardown (referenced from magellan.json) see [https://github.com/TestArmada/magellan#setup-and-teardown](https://github.com/TestArmada/magellan#setup-and-teardown)
+* Nightwatch setup/teardown setup/teardown referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file) in your nightwatch.json file
+
+### Easy (and more opinionated) way
+
+Magellan init file (build application resources)
 ```
 module.exports = require('smocks-magellan-nightwatch').magellan({
 
-  // bould our application assets to the "outputPath" provided
-  build: function (outputPath, callback) {
-    // simple webpack example to build and copy all files to the output path provided
-    var config = require('webpack.config.js');
-    config.output.path = outputPath;
-    require('webpack')(config).run(callback);
+  // build your application assets to the "outputPath" provided
+  before: function (options, callback) {
+    var distPath = options.distPath;
+    // build/copy all SPA application files to the distPath
+    // note: distPath will always be cleaned up after the tests are complete
   }
 });
 ```
 
-nightwatch setup/teardown setup/teardown referenced as the [nightwatch globals_path](http://nightwatchjs.org/guide#settings-file) in your nightwatch.json file.  This is used to start an app server to serve out the static contents as well as your smocks server for each worker.  It will look something like this
+Nightwatch init file (provide mock server plugin reference)
 ```
 module.exports = require('smocks-magellan-nightwatch').nightwatch({
 
@@ -42,6 +46,74 @@ module.exports = require('smocks-magellan-nightwatch').nightwatch({
 });
 ```
 
+### Manual (and less opinionated) way
+
+Your magellan and nightwatch file can be just simple hooks into the end to end process.  You can mix and match automated app server and mock server builds so you don't necessarily have to commit to the manual route for everything.
+
+Magellan init file (build application resources)
+```
+module.exports = require('smocks-magellan-nightwatch').magellan({
+
+  // build your application assets to the "outputPath" provided
+  before: function (options, callback) {
+    // do whatever you want - executed before any nightwatch worker is executed
+  },
+
+  after: function (options, callback) {
+    // do whatever you want - executed after all nightwatch tests have completed
+  }
+});
+```
+
+Nightwatch init file
+```
+module.exports = require('smocks-magellan-nightwatch').nightwatch({
+
+  // build your application assets to the "outputPath" provided
+  before: function (options, callback) {
+    // do whatever you want - executed before each individual nightwatch worker runs the test
+  },
+
+  after: function (options, callback) {
+    // do whatever you want - executed after each individual nightwatch worker runs the test
+  }
+});
+```
+
+### Magellan init attributes and options
+All functions that have a `callback` parameter are assumed to be async.  The `callback` function *must be called* once execution is complete.  If execution is successful, no arguments should be provided.  Otherwise the first argument should be the error that was encountered.
+
+#### `smocks-magellan-nightwatch.magellan` attributes
+
+* ***before(options, callback)***: (optional) async callback executed before any nightwatch worker is executed.  Normally you would build your application at this time.
+* ***after(options, callback)***: (optional) async callbac executed after all nightwatch tests have completed.
+* ***logFile***: (optional) a log file for debugging purposes (because logging is difficult when running in parallel)
+
+#### `smocks-magellan-nightwatch.magellan` lifecycle callback options
+
+* ***distPath***: an output path that can be used that will be cleaned up automatically
+* ***log***: a log function to add log entries to the `logFile` if desired.
+
+
+### Nightwatch init attributes and options
+#### `smocks-magellan-nightwatch.nightwatch` attributes
+
+* ***mockServer***: (optional) Smocks plugin to allow managed start/stop of the mock server.
+* ***mockServer.start(options, callback)***: (optional) instead of a managed mock server a manual startup process can be used
+* ***mockServer.stop(options, callback)***: (optional) if manual startup process is used, this should be implemented to stop the mock server
+* ***appServer.start(options, callback)***: (optional) instead of a managed server which serves files out of the `distPath` a manual startup process can be used
+* ***appServer.stop(options, callback)***: (optional) if manual startup process is used, this should be implemented to stop the app server
+* ***onStart(options)***: Called after mock server and app server have been started (or at least the callbacks have been made)
+* ***logFile***: (optional) a log file for debugging purposes (because logging is difficult when running in parallel)
+
+#### `smocks-magellan-nightwatch.magellan` lifecycle callback options
+
+* ***distPath***: an output path that can be used that will be cleaned up automatically
+* ***log***: a log function to add log entries to the `logFile` if desired.
+* ***mocksPort***: a free port that can be used for your mock Server
+* ***appPort***: a free port that can be used for your app Server
+
+### Additional Install Details (easy or manual way)
 You need to refer to configurable API base when executing your XHR calls.  To determine if you are in `mock mode`, a global variable is automatically applied to your container HTML page called `configMode`.  This value will (optionally) tell you the port your API base should refer to.
 
 For example, this is an example of what will be magically injected into your HTML page
