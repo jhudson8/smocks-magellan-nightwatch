@@ -3,15 +3,18 @@ Major structural changes (added ability to manually control the app server and m
 ```
 // magellan init
 module.exports = require('smocks-magellan-nightwatch/setup-teardown')({
+  build: ...
   ...
 });
 ```
 to
 ```
 module.exports = require('smocks-magellan-nightwatch').magellan({
+  before: ...
   ...
 });
 ```
+see [README.md](README.md) for more lifecycle events.
 
 and
 ```
