@@ -1,3 +1,6 @@
+3.0.2
+- support deep linking of container page (for pushState) with simple/automated setup
+
 3.0.1
 Major structural changes (added ability to manually control the app server and mock server startup and teardown).  See [README.md](README.md) for details. This is *mostly* backwards compatible except you must change
 ```
