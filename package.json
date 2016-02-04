@@ -17,6 +17,7 @@
   "dependencies": {
     "hapi": "^8.8.0",
     "lodash": "^4.2.0",
+    "mime-types": "^2.1.9",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "q": "^1.4.1",
