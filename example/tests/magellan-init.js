@@ -4,10 +4,10 @@
 
 module.exports = require('smocks-magellan-nightwatch').magellan({
 
-  // bould our application assets to the "outputPath" provided
-  build: function (outputPath, callback) {
+  // build our application assets to the "options.distPath" provided
+  before: function (options, callback) {
     var config = require('../webpack.config.js');
-    config.output.path = outputPath;
+    config.output.path = options.distPath;
     require('webpack')(config).run(callback);
   }
 });

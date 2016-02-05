@@ -22,4 +22,3 @@ if (!global.testMode) {
   // because each nightwatch worker will start their own mock server
   require('./mocks/run-mock-server');
 }
-
