@@ -1,3 +1,8 @@
+3.2.0
+* must be used with at least `smocks` 3.2.0
+- a single smocks server can now be used for *all* parallel nightwatch workers
+This isn't super meaningful right now but will be once https://github.com/TestArmada/magellan/issues/112 is resolved.
+
 3.0.2
 - support deep linking of container page (for pushState) with simple/automated setup
 
