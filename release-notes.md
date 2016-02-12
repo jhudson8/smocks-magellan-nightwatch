@@ -1,3 +1,6 @@
+3.2.1
+- don't require use of multiport state handler yet since https://github.com/TestArmada/magellan/issues/112 has not been resolved
+
 3.2.0
 * must be used with at least `smocks` 3.2.0
 - a single smocks server can now be used for *all* parallel nightwatch workers
