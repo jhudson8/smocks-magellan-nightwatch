@@ -3,9 +3,9 @@ var CommandUtil = require('../lib/util');
 var events = require('events');
 
 /**
- * Set a fixture to have a specific variant.
- * The fixture id and variant id can be seen (if looking at the "Paths" view)...
- * Usage: client.setMockVariant({ fixture: `fixture id`, variant: `variant id` })
+ * Set a route to have a specific variant.
+ * The route id and variant id can be seen (if looking at the "Paths" view)...
+ * Usage: client.setMockVariant({ route: `route id`, variant: `variant id` })
  */
 
 function MockCommand () {
@@ -21,7 +21,7 @@ MockCommand.prototype.command = function (options, callback) {
     self.emit('complete');
   };
 
-  CommandUtil.executeMockAPI('/route/' + encodeURIComponent(options.fixture), {
+  CommandUtil.executeMockAPI('/route/' + encodeURIComponent(options.route || options.fixture), {
     input: {
       variant: options.input
     }

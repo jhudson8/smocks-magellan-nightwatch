@@ -4,7 +4,7 @@ var events = require('events');
 
 /**
  * Reset all fixture config (which can be updated using the `setMockVariant` command)
- * Usage: client.resetMockConfig()
+ * Usage: client.resetMockState()
  */
 
 function MockCommand () {
