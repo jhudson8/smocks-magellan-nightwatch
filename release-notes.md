@@ -1,3 +1,6 @@
+3.3.0
+- Add `suppressMockPortInjection` nightwatch parameter which will prevent the mock port from being injected into the container page as a global variable
+
 3.2.1
 - don't require use of multiport state handler yet since https://github.com/TestArmada/magellan/issues/112 has not been resolved
 
