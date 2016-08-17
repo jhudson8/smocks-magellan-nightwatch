@@ -1,3 +1,47 @@
+3.3.1
+- Add ability to tell nightwatch handler a specific mocks port (if you manually start a single mock server)
+
+in your magellan init file, it would look something like this
+```
+var magellan = require('testarmada-magellan');
+var state = require('smocks-magellan-nightwatch/lib/multiport-state');
+
+module.exports = require('smocks-magellan-nightwatch').magellan({
+
+  // compile any application resources and copy them to the "outputPath"
+  before: function (options, callback) {
+    // get a dynamic port to launch the mock server
+    magellan.portUtil.acquirePort(function (err, port) {
+      if (err) {
+        return callback(err);
+      }
+
+      // let the nightwatch commands know about it
+      options.setMocksPort(port);
+
+      // build application assets (your own function that would build your SPA)
+      buildAssets(options, function (err) {
+        if (err) {
+          return callback(err);
+        }
+
+        // start the mock server on the allocated port
+        // use a referrer port-based state to allow parallel nightwatch applications
+        // to access a single mock server
+        mockServer.start({
+          port: port,
+          state: state
+        }, callback);
+      });
+    });
+  },
+
+  after: function (options, callback) {
+    mockServer.stop(callback);
+  }
+});
+```
+
 3.3.0
 - Add `suppressMockPortInjection` nightwatch parameter which will prevent the mock port from being injected into the container page as a global variable
 
